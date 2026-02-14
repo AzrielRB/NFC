@@ -1,0 +1,80 @@
+@extends('layouts.app')
+
+@section('title', 'Edit Cabang')
+@section('page-title', 'Edit Cabang')
+
+@section('content')
+<div class="card">
+    <div class="card-header">
+        <h3><i class="fas fa-edit"></i> Edit Cabang</h3>
+        <a href="{{ route('cabang.index') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Kembali
+        </a>
+    </div>
+
+    <div class="card-body">
+        {{-- Validation Errors --}}
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Terjadi kesalahan:</strong>
+                    <ul style="margin: 5px 0 0 0; padding-left: 20px;">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
+
+        <form action="{{ route('cabang.update', $cabang) }}" method="POST" id="cabangForm">
+            @csrf
+            @method('PUT')
+
+            <div class="form-group">
+                <label for="nama_cabang">Nama Cabang <span class="required">*</span></label>
+                <input type="text" id="nama_cabang" name="nama_cabang" value="{{ old('nama_cabang', $cabang->nama_cabang) }}"
+                       class="form-control @error('nama_cabang') is-invalid @enderror"
+                       placeholder="Contoh: NFC Cabang Pusat" required>
+            </div>
+
+            <div class="form-group">
+                <label for="alamat">Alamat Lengkap <span class="required">*</span></label>
+                <textarea id="alamat" name="alamat" rows="3"
+                          class="form-control @error('alamat') is-invalid @enderror"
+                          placeholder="Contoh: Jl. Merdeka No. 123, Kota" required>{{ old('alamat', $cabang->alamat) }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="telepon">Nomor Telepon <span class="required">*</span></label>
+                <input type="text" id="telepon" name="telepon" value="{{ old('telepon', $cabang->telepon) }}"
+                       class="form-control @error('telepon') is-invalid @enderror"
+                       placeholder="Contoh: 0812-3456-7890" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="jam_buka">Jam Buka <span class="required">*</span></label>
+                    <input type="time" id="jam_buka" name="jam_buka" value="{{ old('jam_buka', $cabang->jam_buka) }}"
+                           class="form-control @error('jam_buka') is-invalid @enderror" required>
+                </div>
+                <div class="form-group">
+                    <label for="jam_tutup">Jam Tutup <span class="required">*</span></label>
+                    <input type="time" id="jam_tutup" name="jam_tutup" value="{{ old('jam_tutup', $cabang->jam_tutup) }}"
+                           class="form-control @error('jam_tutup') is-invalid @enderror" required>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-primary btn-submit-confirm" data-action="memperbarui cabang">
+                    <i class="fas fa-save"></i> Perbarui Cabang
+                </button>
+                <a href="{{ route('cabang.index') }}" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> Batal
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+@endsection
