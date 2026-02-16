@@ -14,10 +14,10 @@
     <div class="login-container">
         <div class="login-card">
             <div class="login-header">
-                <div class="login-logo">
-                    <i class="fas fa-drumstick-bite"></i>
+                <div class="login-logo" style="background: none; box-shadow: none;">
+                    <img src="{{ asset('images/logo2.png') }}" alt="NFC Logo" style="width: 70px; height: 70px; object-fit: contain;">
                 </div>
-                <h1>NFC Admin</h1>
+                <h1>Admin Nurul Fried Chicken</h1>
                 <p>Sistem Informasi Kelola Menu</p>
             </div>
 
@@ -76,7 +76,7 @@
             </form>
 
             <div class="login-footer">
-                <p>&copy; {{ date('Y') }} NFC — Sistem Kelola Menu</p>
+                <p>&copy; {{ date('Y') }} Azriel Rakhan Bilal — Sistem Kelola Menu</p>
             </div>
         </div>
     </div>

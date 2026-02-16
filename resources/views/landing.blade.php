@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFC — Ayam Goreng Nikmat</title>
+    <title>Nurul Fried Chicken — Ayam Goreng Nikmat</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -454,6 +454,128 @@
             text-align: center;
         }
 
+        /* ===== Sejarah Section ===== */
+        .sejarah-section { background: var(--white); }
+
+        .sejarah-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .sejarah-text {
+            flex: 1;
+        }
+
+        .sejarah-text p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .sejarah-image {
+            flex: 0 0 300px;
+            text-align: center;
+            font-size: 150px;
+            line-height: 1;
+        }
+
+        .sejarah-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 24px;
+        }
+
+        .sejarah-stat {
+            text-align: center;
+        }
+
+        .sejarah-stat .number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--red);
+        }
+
+        .sejarah-stat .label {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* ===== Visi Misi Section ===== */
+        .visimisi-section { background: var(--bg); }
+
+        .visimisi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .visimisi-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 36px;
+            transition: all 0.3s ease;
+        }
+
+        .visimisi-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .visimisi-card .card-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--red), var(--red-dark));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(198, 40, 40, 0.3);
+        }
+
+        .visimisi-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 14px;
+        }
+
+        .visimisi-card p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .visimisi-card ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .visimisi-card ul li {
+            font-size: 14px;
+            color: var(--text-light);
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .visimisi-card ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--red);
+            font-size: 12px;
+        }
+
         /* ===== About Section ===== */
         .about-section { background: var(--white); }
 
@@ -578,6 +700,10 @@
 
             .about-grid { grid-template-columns: 1fr; }
             .cabang-grid { grid-template-columns: 1fr; }
+            .visimisi-grid { grid-template-columns: 1fr; }
+            .sejarah-content { flex-direction: column; text-align: center; }
+            .sejarah-image { flex: 0 0 auto; font-size: 100px; }
+            .sejarah-stats { justify-content: center; }
             .footer-grid { grid-template-columns: 1fr; gap: 24px; }
         }
 
@@ -620,15 +746,15 @@
     <nav class="navbar">
         <div class="navbar-inner">
             <a href="{{ route('landing') }}" class="navbar-brand">
-                <i class="fas fa-drumstick-bite"></i>
-                NFC
+                <img src="{{ asset('images/logo.png') }}" alt="NFC Logo" style="height: 50px; width: auto; vertical-align: middle; margin-right: 6px;">
+                Nurul Fried Chicken
             </a>
 
             <ul class="navbar-nav">
                 <li><a href="#beranda" class="active">Beranda</a></li>
                 <li><a href="#menu">Menu</a></li>
                 <li><a href="#cabang">Cabang</a></li>
-                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#sejarah">Tentang</a></li>
             </ul>
 
             <div class="navbar-actions">
@@ -647,7 +773,7 @@
         <a href="#beranda">Beranda</a>
         <a href="#menu">Menu</a>
         <a href="#cabang">Cabang</a>
-        <a href="#tentang">Tentang</a>
+        <a href="#sejarah">Tentang</a>
         <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login Admin</a>
     </div>
 
@@ -659,7 +785,7 @@
                     <div class="hero-badge">
                         <i class="fas fa-star"></i> Nikmat, Fresh & Crispy
                     </div>
-                    <h1>Ayam Goreng<br>Renyah & Nikmat!</h1>
+                    <h1>Nurul Fried Chicken<br><span style="color: var(--white);">Renyah & Nikmat!</span></h1>
                     <p>Nikmati kelezatan ayam goreng crispy dengan bumbu rahasia pilihan. Tersedia berbagai pilihan menu yang menggugah selera.</p>
                     <div class="hero-buttons">
                         <a href="#menu" class="btn-hero btn-hero-primary">
@@ -671,7 +797,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="hero-emoji">🍗</div>
+                    <img src="{{ asset('images/logo.png') }}" alt="NFC Logo" class="hero-emoji" style="width: 350px; height: auto;">
                 </div>
             </div>
         </div>
@@ -731,7 +857,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Cabang <span>Kami</span></h2>
-                <p>Temukan cabang NFC terdekat dari lokasi Anda</p>
+                <p>Temukan cabang Nurul Fried Chicken terdekat dari lokasi Anda</p>
                 <div class="section-divider"></div>
             </div>
 
@@ -768,12 +894,78 @@
         </div>
     </section>
 
+    <!-- ===== Sejarah Section ===== -->
+    <section class="section sejarah-section" id="sejarah">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sejarah <span>Kami</span></h2>
+                <p>Perjalanan Nurul Fried Chicken dari warung kecil hingga menjadi brand ayam goreng terpercaya</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="sejarah-content">
+                <div class="sejarah-text">
+                    <p>Perjalanan kurasi bisnis ini dimulai sejak merantau di awal 2003. Setelah sempat bersinergi mengelola usaha bersama keluarga pada April 2004, langkah mandiri pun dimulai pada Oktober 2004 dengan dibukanya gerai di Gang Raden Sungging dan Ratu Jaya, Depok. Hingga kini, kami juga mengoperasikan unit usaha pemotongan ayam untuk menjaga kualitas bahan baku utama kami.</p>
+                    <div class="sejarah-stats">
+                        <div class="sejarah-stat">
+                            <div class="number">2004</div>
+                            <div class="label">Tahun Berdiri</div>
+                        </div>
+                        <div class="sejarah-stat">
+                            <div class="number">{{ $cabangs->count() }}+</div>
+                            <div class="label">Cabang</div>
+                        </div>
+                        <div class="sejarah-stat">
+                            <div class="number">{{ $menus->flatten()->count() }}+</div>
+                            <div class="label">Menu</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sejarah-image">🏪</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Visi Misi Section ===== -->
+    <section class="section visimisi-section" id="visimisi">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visi & <span>Misi</span></h2>
+                <p>Komitmen kami untuk terus berkembang dan memberikan yang terbaik</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="visimisi-grid">
+                <div class="visimisi-card">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4>Visi</h4>
+                    <p>Menjadi brand ayam goreng lokal terdepan yang dikenal luas oleh masyarakat Indonesia, dengan mengutamakan kualitas rasa, kebersihan, dan pelayanan terbaik di setiap cabang.</p>
+                </div>
+
+                <div class="visimisi-card">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h4>Misi</h4>
+                    <ul>
+                        <li>Untuk mensejahterakan banyak orang dalam lingkup ( Karyawan)</li>
+                        <li>Memberikan layanan terbaik dengan kompetitif serta membangun loyalitas pelanggan.</li>
+                        <li>Fokus pada produk, pelayanan pelanggan, dan bisnis</li>
+                        <li>Terus berinovasi dalam menu dan pelayanan demi pengalaman terbaik</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== Tentang Section ===== -->
     <section class="section about-section" id="tentang">
         <div class="container">
             <div class="section-header">
-                <h2>Kenapa <span>NFC?</span></h2>
-                <p>Alasan mengapa pelanggan selalu kembali ke NFC</p>
+                <h2>Kenapa <span>Nurul Fried Chicken?</span></h2>
+                <p>Alasan mengapa pelanggan selalu kembali ke Nurul Fried Chicken</p>
                 <div class="section-divider"></div>
             </div>
 
@@ -811,9 +1003,9 @@
             <div class="footer-grid">
                 <div>
                     <div class="footer-brand">
-                        <i class="fas fa-drumstick-bite"></i> NFC
+                        <i class="fas fa-drumstick-bite"></i> Nurul Fried Chicken
                     </div>
-                    <p>Ayam Goreng NFC — Nikmati kelezatan ayam goreng crispy dengan bumbu rahasia pilihan. Selalu fresh, selalu nikmat.</p>
+                    <p>Nurul Fried Chicken — Nikmati kelezatan ayam goreng crispy dengan bumbu rahasia pilihan. Selalu fresh, selalu nikmat.</p>
                 </div>
                 <div>
                     <h4>Navigasi</h4>
@@ -827,14 +1019,14 @@
                 <div>
                     <h4>Kontak</h4>
                     <ul>
-                        <li><i class="fas fa-phone" style="color:var(--gold);margin-right:6px;"></i> 0812-3456-7890</li>
+                        <li><i class="fas fa-phone" style="color:var(--gold);margin-right:6px;"></i> 0859-5668-9966</li>
                         <li><i class="fas fa-envelope" style="color:var(--gold);margin-right:6px;"></i> info@nfc.com</li>
                         <li><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:6px;"></i> Jl. Contoh, Kota</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; {{ date('Y') }} NFC Ayam Goreng. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} Azriel Rakhan Bilal. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -870,7 +1062,10 @@
             });
         }
 
-        // Navbar scroll effect
+        // Navbar scroll effect + active link scroll-spy
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.navbar-nav a');
+
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -880,6 +1075,22 @@
                 navbar.style.background = '#C62828';
                 navbar.style.backdropFilter = 'none';
             }
+
+            // Scroll-spy: update active nav link
+            let current = '';
+            sections.forEach(function(section) {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
         });
 
         // Smooth scroll for anchor links

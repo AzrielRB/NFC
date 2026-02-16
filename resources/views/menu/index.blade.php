@@ -21,14 +21,6 @@
                     <input type="text" name="search" value="{{ $search }}" placeholder="Cari nama menu...">
                 </div>
             </div>
-            <div class="filter-group">
-                <select name="kategori">
-                    <option value="">Semua Kategori</option>
-                    @foreach($kategoriList as $kat)
-                        <option value="{{ $kat }}" {{ $kategori == $kat ? 'selected' : '' }}>{{ $kat }}</option>
-                    @endforeach
-                </select>
-            </div>
             <button type="submit" class="btn btn-secondary">
                 <i class="fas fa-filter"></i> Filter
             </button>
