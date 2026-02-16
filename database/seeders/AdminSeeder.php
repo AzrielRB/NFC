@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class AdminSeeder extends Seeder
 {
     /**
-     * Seed admin default.
+     * akun admin default.
      */
     public function run(): void
     {
