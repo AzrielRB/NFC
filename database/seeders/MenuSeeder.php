@@ -13,14 +13,11 @@ class MenuSeeder extends Seeder
     public function run(): void
     {
         $menus = [
-            ['nama_menu' => 'Ayam Goreng Original', 'harga' => 15000, 'kategori' => 'Makanan'],
-            ['nama_menu' => 'Ayam Goreng Crispy', 'harga' => 18000, 'kategori' => 'Makanan'],
-            ['nama_menu' => 'Ayam Goreng Pedas', 'harga' => 18000, 'kategori' => 'Makanan'],
-            ['nama_menu' => 'Paket Nasi + Ayam', 'harga' => 22000, 'kategori' => 'Paket'],
-            ['nama_menu' => 'Paket Nasi + Ayam + Es Teh', 'harga' => 27000, 'kategori' => 'Paket'],
-            ['nama_menu' => 'Es Teh Manis', 'harga' => 5000, 'kategori' => 'Minuman'],
-            ['nama_menu' => 'Es Jeruk', 'harga' => 7000, 'kategori' => 'Minuman'],
-            ['nama_menu' => 'Air Mineral', 'harga' => 4000, 'kategori' => 'Minuman'],
+            ['nama_menu' => 'Ayam Goreng Original', 'harga' => 15000, 'kategori' => 'Makanan', 'deskripsi' => 'Ayam goreng dengan bumbu original khas NFC, digoreng hingga keemasan dan renyah.'],
+            ['nama_menu' => 'Ayam Goreng Crispy', 'harga' => 18000, 'kategori' => 'Makanan', 'deskripsi' => 'Ayam goreng berlapis tepung crispy yang renyah di luar, juicy di dalam.'],
+            ['nama_menu' => 'Ayam Goreng Pedas', 'harga' => 18000, 'kategori' => 'Makanan', 'deskripsi' => 'Ayam goreng dengan balutan sambal pedas spesial, cocok untuk pecinta pedas.'],
+            ['nama_menu' => 'Paket Nasi + Ayam', 'harga' => 22000, 'kategori' => 'Paket', 'deskripsi' => 'Paket hemat nasi putih hangat dengan ayam goreng pilihan.'],
+            ['nama_menu' => 'Paket Nasi + Ayam + Es Teh', 'harga' => 27000, 'kategori' => 'Paket', 'deskripsi' => 'Paket lengkap nasi, ayam goreng, dan es teh manis segar.'],
         ];
 
         foreach ($menus as $menu) {

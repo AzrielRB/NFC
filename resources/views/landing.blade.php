@@ -830,8 +830,6 @@
                                 <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_menu }}" style="width:100%;height:100%;object-fit:cover;">
                             @elseif(strtolower($kategori) === 'makanan')
                                 🍗
-                            @elseif(strtolower($kategori) === 'minuman')
-                                🥤
                             @elseif(strtolower($kategori) === 'paket')
                                 🍱
                             @else
@@ -841,6 +839,9 @@
                         <div class="menu-card-body">
                             <span class="menu-card-kategori kat-{{ strtolower($kategori) }}">{{ $kategori }}</span>
                             <h4>{{ $item->nama_menu }}</h4>
+                            @if($item->deskripsi)
+                                <p style="font-size:12px;color:var(--text-light);margin:6px 0 0;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">{{ $item->deskripsi }}</p>
+                            @endif
                             <div class="menu-card-price">
                                 Rp {{ number_format($item->harga, 0, ',', '.') }}
                             </div>

@@ -18,7 +18,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
-                    <i class="fas fa-drumstick-bite"></i>
+                    <img src="{{ asset('images/logo2.png') }}" alt="NFC Logo" style="height: 45px; width: auto;">
                     <span>NFC Admin</span>
                 </div>
                 <button class="sidebar-toggle" id="sidebarToggle">

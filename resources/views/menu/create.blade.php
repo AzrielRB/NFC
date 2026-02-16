@@ -59,11 +59,27 @@
                 <select id="kategori" name="kategori" required>
                     <option value="">-- Pilih Kategori --</option>
                     <option value="Makanan" {{ old('kategori') == 'Makanan' ? 'selected' : '' }}>Makanan</option>
-                    <option value="Minuman" {{ old('kategori') == 'Minuman' ? 'selected' : '' }}>Minuman</option>
                     <option value="Paket" {{ old('kategori') == 'Paket' ? 'selected' : '' }}>Paket</option>
                     <option value="Lainnya" {{ old('kategori') == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
                 </select>
                 @error('kategori')
+                    <span class="error-text">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="deskripsi">
+                    <i class="fas fa-align-left"></i> Deskripsi
+                </label>
+                <textarea 
+                    id="deskripsi" 
+                    name="deskripsi" 
+                    placeholder="Deskripsi singkat menu (opsional)"
+                    maxlength="500"
+                    rows="3"
+                    style="width:100%;padding:12px 16px;border:2px solid var(--border);border-radius:var(--radius);font-size:14px;font-family:inherit;resize:vertical;background:var(--bg);"
+                >{{ old('deskripsi') }}</textarea>
+                @error('deskripsi')
                     <span class="error-text">{{ $message }}</span>
                 @enderror
             </div>

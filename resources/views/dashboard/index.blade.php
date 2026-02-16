@@ -52,8 +52,6 @@
             <div class="stat-icon">
                 @if(strtolower($kategori) === 'makanan')
                     <i class="fas fa-hamburger"></i>
-                @elseif(strtolower($kategori) === 'minuman')
-                    <i class="fas fa-glass-water"></i>
                 @elseif(strtolower($kategori) === 'paket')
                     <i class="fas fa-box-open"></i>
                 @else

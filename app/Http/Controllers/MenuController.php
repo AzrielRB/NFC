@@ -49,6 +49,7 @@ class MenuController extends Controller
             'nama_menu' => ['required', 'string', 'max:100'],
             'harga' => ['required', 'integer', 'min:0'],
             'kategori' => ['required', 'string', 'max:50'],
+            'deskripsi' => ['nullable', 'string', 'max:500'],
             'gambar' => ['nullable', 'image', 'mimes:jpeg,jpg,png,webp', 'max:2048'],
         ], [
             'nama_menu.required' => 'Nama menu wajib diisi.',
@@ -58,6 +59,7 @@ class MenuController extends Controller
             'harga.min' => 'Harga tidak boleh negatif.',
             'kategori.required' => 'Kategori wajib diisi.',
             'kategori.max' => 'Kategori maksimal 50 karakter.',
+            'deskripsi.max' => 'Deskripsi maksimal 500 karakter.',
             'gambar.image' => 'File harus berupa gambar.',
             'gambar.mimes' => 'Format gambar harus jpeg, jpg, png, atau webp.',
             'gambar.max' => 'Ukuran gambar maksimal 2MB.',
@@ -90,6 +92,7 @@ class MenuController extends Controller
             'nama_menu' => ['required', 'string', 'max:100'],
             'harga' => ['required', 'integer', 'min:0'],
             'kategori' => ['required', 'string', 'max:50'],
+            'deskripsi' => ['nullable', 'string', 'max:500'],
             'gambar' => ['nullable', 'image', 'mimes:jpeg,jpg,png,webp', 'max:2048'],
         ], [
             'nama_menu.required' => 'Nama menu wajib diisi.',
@@ -99,6 +102,7 @@ class MenuController extends Controller
             'harga.min' => 'Harga tidak boleh negatif.',
             'kategori.required' => 'Kategori wajib diisi.',
             'kategori.max' => 'Kategori maksimal 50 karakter.',
+            'deskripsi.max' => 'Deskripsi maksimal 500 karakter.',
             'gambar.image' => 'File harus berupa gambar.',
             'gambar.mimes' => 'Format gambar harus jpeg, jpg, png, atau webp.',
             'gambar.max' => 'Ukuran gambar maksimal 2MB.',
