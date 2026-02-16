@@ -191,6 +191,7 @@
             font-weight: 900;
             line-height: 1.15;
             margin-bottom: 20px;
+            color: var(--gold);
         }
 
         .hero h1 span { color: var(--gold); }
@@ -658,7 +659,7 @@
                     <div class="hero-badge">
                         <i class="fas fa-star"></i> Nikmat, Fresh & Crispy
                     </div>
-                    <h1>Ayam Goreng <span>NFC</span><br>Renyah & Nikmat!</h1>
+                    <h1>Ayam Goreng<br>Renyah & Nikmat!</h1>
                     <p>Nikmati kelezatan ayam goreng crispy dengan bumbu rahasia pilihan. Tersedia berbagai pilihan menu yang menggugah selera.</p>
                     <div class="hero-buttons">
                         <a href="#menu" class="btn-hero btn-hero-primary">
