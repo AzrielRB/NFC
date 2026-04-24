@@ -21,9 +21,7 @@
                     <input type="text" name="search" value="{{ $search }}" placeholder="Cari nama cabang atau alamat...">
                 </div>
             </div>
-            <button type="submit" class="btn btn-secondary">
-                <i class="fas fa-filter"></i> Cari
-            </button>
+
             @if($search)
                 <a href="{{ route('cabang.index') }}" class="btn btn-outline">
                     <i class="fas fa-times"></i> Reset

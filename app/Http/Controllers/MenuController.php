@@ -114,10 +114,13 @@ class MenuController extends Controller
                 Storage::disk('public')->delete($menu->gambar);
             }
             $validated['gambar'] = $request->file('gambar')->store('menu', 'public');
+        } else {
+            // Cegah gambar terhapus menjadi null jika form disubmit tanpa file baru
+            unset($validated['gambar']);
         }
 
         // Jika user ingin hapus gambar tanpa upload baru
-        if ($request->has('hapus_gambar') && !$request->hasFile('gambar')) {
+        if ($request->input('hapus_gambar') == '1' && !$request->hasFile('gambar')) {
             if ($menu->gambar && Storage::disk('public')->exists($menu->gambar)) {
                 Storage::disk('public')->delete($menu->gambar);
             }

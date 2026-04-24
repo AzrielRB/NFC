@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nurul Fried Chicken — Ayam Goreng Nikmat</title>
+    <link rel="icon" href="{{ asset('images/logo2.png') }}" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -347,7 +348,7 @@
         }
 
         .menu-card-icon {
-            height: 120px;
+            height: 250px;
             background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
             display: flex;
             align-items: center;
@@ -845,6 +846,9 @@
                             <div class="menu-card-price">
                                 Rp {{ number_format($item->harga, 0, ',', '.') }}
                             </div>
+                            <a href="https://wa.me/6285956689966?text=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0A%0ASaya%20ingin%20memesan%20menu%3A%0A-%20{{ rawurlencode($item->nama_menu) }}%0A%0AAlamat%20Pengiriman%3A%0A...%0A%0ATerima%20kasih." target="_blank" rel="noopener noreferrer" style="display:block; margin-top:12px; padding:8px 0; background-color:#25D366; color:white; border-radius:6px; font-size:13px; font-weight:600; text-align:center; text-decoration:none; transition:opacity 0.3s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+                                <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                            </a>
                         </div>
                     </div>
                     @endforeach
@@ -922,7 +926,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="sejarah-image">🏪</div>
+                <div class="sejarah-image">
+                    <img src="{{ asset('images/logo2.png') }}" alt="Logo NFC" style="max-width: 280px; height: auto; margin: 0 auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));">
+                </div>
             </div>
         </div>
     </section>
@@ -1020,8 +1026,8 @@
                 <div>
                     <h4>Kontak</h4>
                     <ul>
-                        <li><i class="fas fa-phone" style="color:var(--gold);margin-right:6px;"></i> 0859-5668-9966</li>
-                        <li><i class="fas fa-envelope" style="color:var(--gold);margin-right:6px;"></i> info@nfc.com</li>
+                        <li><a href="https://wa.me/6285956689966?text=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0A%0ASaya%20ingin%20memesan%20menu%20berikut%3A%0A-%20...%0A-%20...%0A%0AAlamat%20Pengiriman%3A%0A...%0A%0ATerima%20kasih." target="_blank" rel="noopener noreferrer"><i class="fas fa-phone" style="color:var(--gold);margin-right:6px;"></i> 0859-5668-9966</a></li>
+                        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=azrielgti@gmail.com&su=Pesanan%20Menu%20NFC&body=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0A%0ASaya%20ingin%20memesan%20menu%20berikut%3A%0A-%20...%0A-%20...%0A%0AAlamat%20Pengiriman%3A%0A...%0A%0ATerima%20kasih." target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope" style="color:var(--gold);margin-right:6px;"></i> azrielgti@gmail.com</a></li>
                         <li><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:6px;"></i> Jl. Contoh, Kota</li>
                     </ul>
                 </div>

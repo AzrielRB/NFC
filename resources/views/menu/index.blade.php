@@ -21,9 +21,7 @@
                     <input type="text" name="search" value="{{ $search }}" placeholder="Cari nama menu...">
                 </div>
             </div>
-            <button type="submit" class="btn btn-secondary">
-                <i class="fas fa-filter"></i> Filter
-            </button>
+
             @if($search || $kategori)
                 <a href="{{ route('menu.index') }}" class="btn btn-outline">
                     <i class="fas fa-times"></i> Reset
