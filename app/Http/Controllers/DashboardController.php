@@ -18,7 +18,11 @@ class DashboardController extends Controller
         $kategoriCount = Menu::selectRaw('kategori, count(*) as total')
             ->groupBy('kategori')
             ->pluck('total', 'kategori');
+        $totalKategori = count($kategoriCount);
 
-        return view('dashboard.index', compact('totalMenu', 'totalCabang', 'kategoriCount'));
+        // Ambil 5 menu terbaru
+        $recentMenus = Menu::orderBy('created_at', 'desc')->take(5)->get();
+
+        return view('dashboard.index', compact('totalMenu', 'totalCabang', 'kategoriCount', 'totalKategori', 'recentMenus'));
     }
 }

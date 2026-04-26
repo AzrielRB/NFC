@@ -1033,7 +1033,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; {{ date('Y') }} Azriel Rakhan Bilal. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} <a href="https://github.com/AzrielRB" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">Azriel Rakhan Bilal</a>. All rights reserved.</p>
             </div>
         </div>
     </footer>

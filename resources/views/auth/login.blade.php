@@ -76,7 +76,7 @@
             </form>
 
             <div class="login-footer">
-                <p>&copy; {{ date('Y') }} Azriel Rakhan Bilal — Sistem Kelola Menu</p>
+                <p>&copy; {{ date('Y') }} <a href="https://github.com/AzrielRB" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; transition:color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='inherit'">Azriel Rakhan Bilal</a> — Sistem Kelola Menu</p>
             </div>
         </div>
     </div>

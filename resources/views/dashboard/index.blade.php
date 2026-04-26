@@ -41,31 +41,23 @@
         </div>
     </div>
 
-    {{-- Card per Kategori --}}
-    @foreach($kategoriCount as $kategori => $total)
-    <div class="stat-card stat-card-{{ $loop->index % 3 == 0 ? 'success' : ($loop->index % 3 == 1 ? 'warning' : 'info') }}">
+    {{-- Card Total Kategori --}}
+    <div class="stat-card stat-card-success">
         <div class="stat-card-body">
             <div class="stat-info">
-                <span class="stat-label">{{ $kategori }}</span>
-                <h2 class="stat-value">{{ $total }}</h2>
+                <span class="stat-label">Total Kategori</span>
+                <h2 class="stat-value">{{ $totalKategori }}</h2>
             </div>
             <div class="stat-icon">
-                @if(strtolower($kategori) === 'makanan')
-                    <i class="fas fa-hamburger"></i>
-                @elseif(strtolower($kategori) === 'paket')
-                    <i class="fas fa-box-open"></i>
-                @else
-                    <i class="fas fa-tag"></i>
-                @endif
+                <i class="fas fa-tags"></i>
             </div>
         </div>
         <div class="stat-card-footer">
-            <a href="{{ route('menu.index', ['kategori' => $kategori]) }}">
-                Lihat {{ $kategori }} <i class="fas fa-arrow-right"></i>
+            <a href="{{ route('menu.index') }}">
+                Kelola Kategori <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     </div>
-    @endforeach
 </div>
 
 {{-- Quick Actions --}}
@@ -74,23 +66,52 @@
         <h3><i class="fas fa-bolt"></i> Aksi Cepat</h3>
     </div>
     <div class="card-body">
-        <div class="quick-actions">
+        <div class="quick-actions" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
             <a href="{{ route('menu.create') }}" class="quick-action-btn">
                 <i class="fas fa-plus-circle"></i>
                 <span>Tambah Menu Baru</span>
-            </a>
-            <a href="{{ route('menu.index') }}" class="quick-action-btn">
-                <i class="fas fa-list"></i>
-                <span>Lihat Daftar Menu</span>
             </a>
             <a href="{{ route('cabang.create') }}" class="quick-action-btn">
                 <i class="fas fa-store"></i>
                 <span>Tambah Cabang Baru</span>
             </a>
-            <a href="{{ route('cabang.index') }}" class="quick-action-btn">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Lihat Daftar Cabang</span>
-            </a>
+        </div>
+    </div>
+</div>
+
+{{-- Aktivitas Terbaru --}}
+<div class="card mt-4">
+    <div class="card-header">
+        <h3><i class="fas fa-clock"></i> Menu Baru Ditambahkan</h3>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th width="5%">No</th>
+                        <th>Nama Menu</th>
+                        <th>Kategori</th>
+                        <th>Harga</th>
+                        <th>Tanggal Ditambahkan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($recentMenus as $index => $menu)
+                        <tr>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $menu->nama_menu }}</td>
+                            <td><span class="badge bg-secondary">{{ $menu->kategori }}</span></td>
+                            <td>Rp {{ number_format($menu->harga, 0, ',', '.') }}</td>
+                            <td>{{ $menu->created_at->format('d M Y, H:i') }}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5" class="text-center">Belum ada menu yang ditambahkan.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

@@ -60,7 +60,7 @@
                         <span class="user-role">Administrator</span>
                     </div>
                 </div>
-                <form action="{{ route('logout') }}" method="POST">
+                <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin keluar/logout?');">
                     @csrf
                     <button type="submit" class="btn-logout" title="Logout">
                         <i class="fas fa-sign-out-alt"></i>
