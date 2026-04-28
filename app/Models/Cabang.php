@@ -17,5 +17,6 @@ class Cabang extends Model
         'telepon',
         'jam_buka',
         'jam_tutup',
+        'link_maps',
     ];
 }

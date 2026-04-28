@@ -846,9 +846,14 @@
                             <div class="menu-card-price">
                                 Rp {{ number_format($item->harga, 0, ',', '.') }}
                             </div>
-                            <a href="https://wa.me/6285956689966?text=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0A%0ASaya%20ingin%20memesan%20menu%3A%0A-%20{{ rawurlencode($item->nama_menu) }}%0A%0AAlamat%20Pengiriman%3A%0A...%0A%0ATerima%20kasih." target="_blank" rel="noopener noreferrer" style="display:block; margin-top:12px; padding:8px 0; background-color:#25D366; color:white; border-radius:6px; font-size:13px; font-weight:600; text-align:center; text-decoration:none; transition:opacity 0.3s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-                                <i class="fab fa-whatsapp"></i> Pesan Sekarang
-                            </a>
+                            <a href="https://wa.me/6285956689966?text=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0ASaya%20ingin%20memesan%20menu%20berikut%3A%0A%F0%9F%93%A6%20Pesanan%3A%20{{ rawurlencode($item->nama_menu) }}%0A%F0%9F%94%A2%20Jumlah%3A%20...%0A%F0%9F%93%8D%20Alamat%20Pengiriman%3A%0A%5BIsi%20Alamat%20Lengkap%5D%0A%0AMohon%20informasi%20total%20harga%20dan%20nomor%20rekeningnya.%20Terima%20kasih%21" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   style="display:block; margin-top:12px; padding:8px 0; background-color:#25D366; color:white; border-radius:6px; font-size:13px; font-weight:600; text-align:center; text-decoration:none; transition:opacity 0.3s;" 
+   onmouseover="this.style.opacity='0.85'" 
+   onmouseout="this.style.opacity='1'">
+    <i class="fab fa-whatsapp"></i> Pesan Sekarang
+</a>
                         </div>
                     </div>
                     @endforeach
@@ -884,6 +889,11 @@
                             <span>Senin - Minggu, {{ $cabang->jam_buka }} - {{ $cabang->jam_tutup }} WIB</span>
                         </div>
                     </div>
+                    @if($cabang->link_maps)
+                        <a href="{{ $cabang->link_maps }}" target="_blank" rel="noopener noreferrer" style="display:block; margin-top:16px; padding:10px 0; background-color:var(--bg); border: 1px solid var(--red); color:var(--red); border-radius:6px; font-size:13px; font-weight:600; text-align:center; text-decoration:none; transition:all 0.3s;" onmouseover="this.style.backgroundColor='var(--red)'; this.style.color='var(--white)';" onmouseout="this.style.backgroundColor='var(--bg)'; this.style.color='var(--red)';">
+                            <i class="fas fa-map-marked-alt"></i> Lihat di Google Maps
+                        </a>
+                    @endif
                 </div>
                 @empty
                 <div class="cabang-card">

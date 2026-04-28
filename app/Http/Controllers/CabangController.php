@@ -43,6 +43,7 @@ class CabangController extends Controller
             'telepon'     => 'required|string|max:20',
             'jam_buka'    => 'required|string|max:50',
             'jam_tutup'   => 'required|string|max:50',
+            'link_maps'   => 'nullable|string|url',
         ], [
             'nama_cabang.required' => 'Nama cabang wajib diisi.',
             'nama_cabang.max'      => 'Nama cabang maksimal 255 karakter.',
@@ -51,6 +52,7 @@ class CabangController extends Controller
             'telepon.max'          => 'Nomor telepon maksimal 20 karakter.',
             'jam_buka.required'    => 'Jam buka wajib diisi.',
             'jam_tutup.required'   => 'Jam tutup wajib diisi.',
+            'link_maps.url'        => 'Link Google Maps harus berupa URL yang valid.',
         ]);
 
         Cabang::create($validated);
@@ -77,6 +79,7 @@ class CabangController extends Controller
             'telepon'     => 'required|string|max:20',
             'jam_buka'    => 'required|string|max:50',
             'jam_tutup'   => 'required|string|max:50',
+            'link_maps'   => 'nullable|string|url',
         ], [
             'nama_cabang.required' => 'Nama cabang wajib diisi.',
             'nama_cabang.max'      => 'Nama cabang maksimal 255 karakter.',
@@ -85,6 +88,7 @@ class CabangController extends Controller
             'telepon.max'          => 'Nomor telepon maksimal 20 karakter.',
             'jam_buka.required'    => 'Jam buka wajib diisi.',
             'jam_tutup.required'   => 'Jam tutup wajib diisi.',
+            'link_maps.url'        => 'Link Google Maps harus berupa URL yang valid.',
         ]);
 
         $cabang->update($validated);

@@ -65,6 +65,13 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <label for="link_maps">Link Google Maps <small class="text-muted">(Opsional)</small></label>
+                <input type="url" id="link_maps" name="link_maps" value="{{ old('link_maps') }}"
+                       class="form-control @error('link_maps') is-invalid @enderror"
+                       placeholder="Contoh: https://maps.app.goo.gl/...">
+            </div>
+
             <div class="form-actions">
                 <button type="button" class="btn btn-primary btn-submit-confirm" data-action="menyimpan cabang baru">
                     <i class="fas fa-save"></i> Simpan Cabang

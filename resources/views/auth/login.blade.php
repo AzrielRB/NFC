@@ -42,6 +42,7 @@
                         placeholder="Masukkan email admin"
                         required
                         autofocus
+                        autocomplete="username"
                     >
                 </div>
 
@@ -56,6 +57,7 @@
                             name="password" 
                             placeholder="Masukkan password"
                             required
+                            autocomplete="current-password"
                         >
                         <button type="button" class="toggle-password" onclick="togglePassword()">
                             <i class="fas fa-eye" id="toggleIcon"></i>
