@@ -830,11 +830,11 @@
                             @if($item->gambar)
                                 <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_menu }}" style="width:100%;height:100%;object-fit:cover;">
                             @elseif(strtolower($kategori) === 'makanan')
-                                🍗
+                                
                             @elseif(strtolower($kategori) === 'paket')
-                                🍱
+                                
                             @else
-                                🍽️
+                                
                             @endif
                         </div>
                         <div class="menu-card-body">
@@ -846,7 +846,7 @@
                             <div class="menu-card-price">
                                 Rp {{ number_format($item->harga, 0, ',', '.') }}
                             </div>
-                            <a href="https://wa.me/6285956689966?text=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0ASaya%20ingin%20memesan%20menu%20berikut%3A%0A%F0%9F%93%A6%20Pesanan%3A%20{{ rawurlencode($item->nama_menu) }}%0A%F0%9F%94%A2%20Jumlah%3A%20...%0A%F0%9F%93%8D%20Alamat%20Pengiriman%3A%0A%5BIsi%20Alamat%20Lengkap%5D%0A%0AMohon%20informasi%20total%20harga%20dan%20nomor%20rekeningnya.%20Terima%20kasih%21" 
+                            <a href="https://wa.me/6289671554991?text=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0ASaya%20ingin%20memesan%20menu%20berikut%3A%0A%F0%9F%93%A6%20Pesanan%3A%20{{ rawurlencode($item->nama_menu) }}%0A%F0%9F%94%A2%20Jumlah%3A%20...%0A%F0%9F%93%8D%20Alamat%20Pengiriman%3A%0A%5BIsi%20Alamat%20Lengkap%5D%0A%0AMohon%20informasi%20total%20harga%20dan%20nomor%20rekeningnya.%20Terima%20kasih%21" 
    target="_blank" 
    rel="noopener noreferrer" 
    style="display:block; margin-top:12px; padding:8px 0; background-color:#25D366; color:white; border-radius:6px; font-size:13px; font-weight:600; text-align:center; text-decoration:none; transition:opacity 0.3s;" 
@@ -1036,9 +1036,9 @@
                 <div>
                     <h4>Kontak</h4>
                     <ul>
-                        <li><a href="https://wa.me/6285956689966?text=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0A%0ASaya%20ingin%20memesan%20menu%20berikut%3A%0A-%20...%0A-%20...%0A%0AAlamat%20Pengiriman%3A%0A...%0A%0ATerima%20kasih." target="_blank" rel="noopener noreferrer"><i class="fas fa-phone" style="color:var(--gold);margin-right:6px;"></i> 0859-5668-9966</a></li>
-                        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=azrielgti@gmail.com&su=Pesanan%20Menu%20NFC&body=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0A%0ASaya%20ingin%20memesan%20menu%20berikut%3A%0A-%20...%0A-%20...%0A%0AAlamat%20Pengiriman%3A%0A...%0A%0ATerima%20kasih." target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope" style="color:var(--gold);margin-right:6px;"></i> azrielgti@gmail.com</a></li>
-                        <li><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:6px;"></i> Jl. Contoh, Kota</li>
+                        <li><a href="https://wa.me/6285956689966?text=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0A%0ASaya%20ingin%20memesan%20menu%20berikut%3A%0A-%20...%0A-%20...%0A%0AAlamat%20Pengiriman%3A%0A...%0A%0ATerima%20kasih." target="_blank" rel="noopener noreferrer"><i class="fas fa-phone" style="color:var(--gold);margin-right:6px;"></i>0896-7155-4991</a></li>
+                        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=nurulfriedchicken06@gmail.com&su=Pesanan%20Menu%20NFC&body=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0A%0ASaya%20ingin%20memesan%20menu%20berikut%3A%0A-%20...%0A-%20...%0A%0AAlamat%20Pengiriman%3A%0A...%0A%0ATerima%20kasih." target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope" style="color:var(--gold);margin-right:6px;"></i>nurulfriedchicken06@gmail.com</a></li>
+                        <li><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:6px;"></i>  Jl. Cagar Alam Sel., RT.4/RW.2, Depok, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16431</li>
                     </ul>
                 </div>
             </div>

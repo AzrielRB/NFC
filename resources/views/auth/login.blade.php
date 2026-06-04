@@ -72,9 +72,13 @@
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">
+                <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 12px;">
                     <i class="fas fa-sign-in-alt"></i> Masuk
                 </button>
+
+                <a href="{{ route('landing') }}" class="btn btn-outline btn-block">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                </a>
             </form>
 
             <div class="login-footer">
