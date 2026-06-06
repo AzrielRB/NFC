@@ -1038,7 +1038,7 @@
                     <ul>
                         <li><a href="https://wa.me/6285956689966?text=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0A%0ASaya%20ingin%20memesan%20menu%20berikut%3A%0A-%20...%0A-%20...%0A%0AAlamat%20Pengiriman%3A%0A...%0A%0ATerima%20kasih." target="_blank" rel="noopener noreferrer"><i class="fas fa-phone" style="color:var(--gold);margin-right:6px;"></i>0896-7155-4991</a></li>
                         <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=nurulfriedchicken06@gmail.com&su=Pesanan%20Menu%20NFC&body=Halo%20Admin%20Nurul%20Fried%20Chicken%2C%0A%0ASaya%20ingin%20memesan%20menu%20berikut%3A%0A-%20...%0A-%20...%0A%0AAlamat%20Pengiriman%3A%0A...%0A%0ATerima%20kasih." target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope" style="color:var(--gold);margin-right:6px;"></i>nurulfriedchicken06@gmail.com</a></li>
-                        <li><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:6px;"></i>  Jl. Cagar Alam Sel., RT.4/RW.2, Depok, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16431</li>
+                        <li><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:6px;"></i>  Jl. Cagar Alam Selatan, RT.4/RW.2, Depok, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16431</li>
                     </ul>
                 </div>
             </div>
