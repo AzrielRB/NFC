@@ -37,13 +37,3 @@ Route::middleware('auth')->group(function () {
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
-
-// Temporary Route to run migrations in production
-Route::get('/run-migration', function () {
-    try {
-        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
-        return 'Migration Success: <br><pre>' . \Illuminate\Support\Facades\Artisan::output() . '</pre>';
-    } catch (\Exception $e) {
-        return 'Migration Failed: ' . $e->getMessage();
-    }
-});
