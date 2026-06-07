@@ -52,7 +52,7 @@
                     <td>{{ $menus->firstItem() + $index }}</td>
                     <td>
                         @if($menu->gambar)
-                            <img src="{{ asset('storage/' . $menu->gambar) }}" alt="{{ $menu->nama_menu }}" class="table-img">
+                            <img src="{{ \Illuminate\Support\Str::startsWith($menu->gambar, ['http://', 'https://']) ? $menu->gambar : asset('storage/' . $menu->gambar) }}" alt="{{ $menu->nama_menu }}" class="table-img">
                         @else
                             <span style="color:#aaa;">—</span>
                         @endif

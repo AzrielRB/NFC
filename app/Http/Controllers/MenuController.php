@@ -66,7 +66,11 @@ class MenuController extends Controller
         ]);
 
         if ($request->hasFile('gambar')) {
-            $validated['gambar'] = $request->file('gambar')->store('menu', 'public');
+            if (env('CLOUDINARY_CLOUD_NAME')) {
+                $validated['gambar'] = $this->uploadToCloudinary($request->file('gambar'));
+            } else {
+                $validated['gambar'] = $request->file('gambar')->store('menu', 'public');
+            }
         }
 
         Menu::create($validated);
@@ -109,11 +113,17 @@ class MenuController extends Controller
         ]);
 
         if ($request->hasFile('gambar')) {
-            // Hapus gambar lama jika ada
-            if ($menu->gambar && Storage::disk('public')->exists($menu->gambar)) {
-                Storage::disk('public')->delete($menu->gambar);
+            // Hapus gambar lama jika ada (hanya jika gambar disimpan di local storage)
+            if ($menu->gambar && !\Illuminate\Support\Str::startsWith($menu->gambar, ['http://', 'https://'])) {
+                if (Storage::disk('public')->exists($menu->gambar)) {
+                    Storage::disk('public')->delete($menu->gambar);
+                }
             }
-            $validated['gambar'] = $request->file('gambar')->store('menu', 'public');
+            if (env('CLOUDINARY_CLOUD_NAME')) {
+                $validated['gambar'] = $this->uploadToCloudinary($request->file('gambar'));
+            } else {
+                $validated['gambar'] = $request->file('gambar')->store('menu', 'public');
+            }
         } else {
             // Cegah gambar terhapus menjadi null jika form disubmit tanpa file baru
             unset($validated['gambar']);
@@ -121,8 +131,10 @@ class MenuController extends Controller
 
         // Jika user ingin hapus gambar tanpa upload baru
         if ($request->input('hapus_gambar') == '1' && !$request->hasFile('gambar')) {
-            if ($menu->gambar && Storage::disk('public')->exists($menu->gambar)) {
-                Storage::disk('public')->delete($menu->gambar);
+            if ($menu->gambar && !\Illuminate\Support\Str::startsWith($menu->gambar, ['http://', 'https://'])) {
+                if (Storage::disk('public')->exists($menu->gambar)) {
+                    Storage::disk('public')->delete($menu->gambar);
+                }
             }
             $validated['gambar'] = null;
         }
@@ -138,14 +150,55 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        // Hapus gambar dari storage
-        if ($menu->gambar && Storage::disk('public')->exists($menu->gambar)) {
-            Storage::disk('public')->delete($menu->gambar);
+        // Hapus gambar dari storage (hanya jika gambar disimpan di local storage)
+        if ($menu->gambar && !\Illuminate\Support\Str::startsWith($menu->gambar, ['http://', 'https://'])) {
+            if (Storage::disk('public')->exists($menu->gambar)) {
+                Storage::disk('public')->delete($menu->gambar);
+            }
         }
 
         $menu->delete();
 
         return redirect()->route('menu.index')
             ->with('success', 'Menu berhasil dihapus!');
+    }
+
+    /**
+     * Upload gambar ke Cloudinary secara aman (Signed Upload).
+     */
+    private function uploadToCloudinary($file)
+    {
+        $cloudName = env('CLOUDINARY_CLOUD_NAME');
+        $apiKey = env('CLOUDINARY_API_KEY');
+        $apiSecret = env('CLOUDINARY_API_SECRET');
+
+        if (!$cloudName || !$apiKey || !$apiSecret) {
+            throw new \Exception('Cloudinary credentials are not configured in environment variables.');
+        }
+
+        $timestamp = time();
+        $params = [
+            'timestamp' => $timestamp,
+        ];
+        ksort($params);
+        $queryString = http_build_query($params);
+        $signature = sha1($queryString . $apiSecret);
+
+        $response = \Illuminate\Support\Facades\Http::attach(
+            'file', 
+            file_get_contents($file->getRealPath()), 
+            $file->getClientOriginalName()
+        )->post("https://api.cloudinary.com/v1_1/{$cloudName}/image/upload", [
+            'api_key' => $apiKey,
+            'timestamp' => $timestamp,
+            'signature' => $signature,
+        ]);
+
+        if ($response->failed()) {
+            throw new \Exception('Cloudinary upload failed: ' . $response->body());
+        }
+
+        $data = $response->json();
+        return $data['secure_url'] ?? null;
     }
 }

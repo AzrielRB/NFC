@@ -828,7 +828,7 @@
                     <div class="menu-card" data-kategori="{{ strtolower($kategori) }}">
                         <div class="menu-card-icon">
                             @if($item->gambar)
-                                <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_menu }}" style="width:100%;height:100%;object-fit:cover;">
+                                <img src="{{ \Illuminate\Support\Str::startsWith($item->gambar, ['http://', 'https://']) ? $item->gambar : asset('storage/' . $item->gambar) }}" alt="{{ $item->nama_menu }}" style="width:100%;height:100%;object-fit:cover;">
                             @elseif(strtolower($kategori) === 'makanan')
                                 
                             @elseif(strtolower($kategori) === 'paket')

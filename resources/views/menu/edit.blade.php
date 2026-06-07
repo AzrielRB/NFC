@@ -92,7 +92,7 @@
 
                 @if($menu->gambar)
                 <div class="current-image" id="currentImage">
-                    <img src="{{ asset('storage/' . $menu->gambar) }}" alt="{{ $menu->nama_menu }}">
+                    <img src="{{ \Illuminate\Support\Str::startsWith($menu->gambar, ['http://', 'https://']) ? $menu->gambar : asset('storage/' . $menu->gambar) }}" alt="{{ $menu->nama_menu }}">
                     <div class="current-image-actions">
                         <label class="btn btn-sm btn-secondary" for="gambar" style="cursor:pointer;">
                             <i class="fas fa-sync-alt"></i> Ganti Gambar
