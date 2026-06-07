@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/test-cloudinary', function () {
     return [
         'cloud_name' => env('CLOUDINARY_CLOUD_NAME', 'not found'),
-        'api_key' => env('CLOUDINARY_API_KEY') ? 'configured' : 'empty',
+        'api_key' => env('CLOUDINARY_API_KEY', 'empty'),
         'api_secret' => env('CLOUDINARY_API_SECRET') ? 'configured' : 'empty',
     ];
 });
