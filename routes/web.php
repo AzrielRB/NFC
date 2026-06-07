@@ -37,3 +37,12 @@ Route::middleware('auth')->group(function () {
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+// Temporary Route to test Cloudinary env variables
+Route::get('/test-cloudinary', function () {
+    return [
+        'cloud_name' => env('CLOUDINARY_CLOUD_NAME', 'not found'),
+        'api_key' => env('CLOUDINARY_API_KEY') ? 'configured' : 'empty',
+        'api_secret' => env('CLOUDINARY_API_SECRET') ? 'configured' : 'empty',
+    ];
+});
