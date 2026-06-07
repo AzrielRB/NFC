@@ -38,25 +38,19 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-// Temporary Route to run migrations and seeders in production
-Route::get('/run-setup', function () {
+// Temporary Route to update admin credentials in production
+Route::get('/update-admin', function () {
     try {
-        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', [
-            '--force' => true,
-            '--seed' => true
-        ]);
-        return 'Setup Success: migrations and seeders run. <br><pre>' . \Illuminate\Support\Facades\Artisan::output() . '</pre>';
+        $admin = \App\Models\User::where('email', 'admin@nfc.com')->first();
+        if ($admin) {
+            $admin->update([
+                'email' => 'nurulfriedchicken06@gmail.com',
+                'password' => \Illuminate\Support\Facades\Hash::make('cagaralam10'),
+            ]);
+            return 'Admin credentials updated successfully! Email is now nurulfriedchicken06@gmail.com';
+        }
+        return 'Admin with email admin@nfc.com not found. Maybe already updated?';
     } catch (\Exception $e) {
-        return 'Setup Failed: ' . $e->getMessage();
-    }
-});
-
-// Temporary Route to check users in production
-Route::get('/check-users', function () {
-    try {
-        $users = \Illuminate\Support\Facades\DB::table('users')->select('name', 'email')->get();
-        return 'Registered Users: ' . json_encode($users);
-    } catch (\Exception $e) {
-        return 'Error: ' . $e->getMessage();
+        return 'Failed to update admin: ' . $e->getMessage();
     }
 });
