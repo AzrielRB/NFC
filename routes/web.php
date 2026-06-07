@@ -50,3 +50,13 @@ Route::get('/run-setup', function () {
         return 'Setup Failed: ' . $e->getMessage();
     }
 });
+
+// Temporary Route to check users in production
+Route::get('/check-users', function () {
+    try {
+        $users = \Illuminate\Support\Facades\DB::table('users')->select('name', 'email')->get();
+        return 'Registered Users: ' . json_encode($users);
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
