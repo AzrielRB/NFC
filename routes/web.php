@@ -46,3 +46,40 @@ Route::get('/test-cloudinary', function () {
         'api_secret' => env('CLOUDINARY_API_SECRET') ? 'configured' : 'empty',
     ];
 });
+
+// Temporary Route to test mock Cloudinary upload
+Route::get('/test-upload', function () {
+    try {
+        $cloudName = env('CLOUDINARY_CLOUD_NAME');
+        $apiKey = env('CLOUDINARY_API_KEY');
+        $apiSecret = env('CLOUDINARY_API_SECRET');
+
+        $timestamp = time();
+        $params = [
+            'timestamp' => $timestamp,
+        ];
+        ksort($params);
+        $queryString = http_build_query($params);
+        $signature = sha1($queryString . $apiSecret);
+
+        // 1x1 transparent pixel GIF
+        $pixel = base64_decode('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+
+        $response = \Illuminate\Support\Facades\Http::attach(
+            'file', 
+            $pixel, 
+            'test.gif'
+        )->post("https://api.cloudinary.com/v1_1/{$cloudName}/image/upload", [
+            'api_key' => $apiKey,
+            'timestamp' => $timestamp,
+            'signature' => $signature,
+        ]);
+
+        return [
+            'status' => $response->status(),
+            'body' => $response->json() ?? $response->body(),
+        ];
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
