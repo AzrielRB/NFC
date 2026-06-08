@@ -86,7 +86,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-hover mb-0">
+            <table class="table table-hover mb-0 table-responsive-stack">
                 <thead>
                     <tr>
                         <th width="5%">No</th>
@@ -99,11 +99,11 @@
                 <tbody>
                     @forelse($recentMenus as $index => $menu)
                         <tr>
-                            <td>{{ $index + 1 }}</td>
-                            <td>{{ $menu->nama_menu }}</td>
-                            <td><span class="badge bg-secondary">{{ $menu->kategori }}</span></td>
-                            <td>Rp {{ number_format($menu->harga, 0, ',', '.') }}</td>
-                            <td>{{ $menu->created_at->format('d M Y, H:i') }}</td>
+                            <td data-label="No">{{ $index + 1 }}</td>
+                            <td data-label="Nama Menu">{{ $menu->nama_menu }}</td>
+                            <td data-label="Kategori"><span class="badge bg-secondary">{{ $menu->kategori }}</span></td>
+                            <td data-label="Harga">Rp {{ number_format($menu->harga, 0, ',', '.') }}</td>
+                            <td data-label="Tanggal">{{ $menu->created_at->format('d M Y, H:i') }}</td>
                         </tr>
                     @empty
                         <tr>

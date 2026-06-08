@@ -33,7 +33,7 @@
     {{-- Table --}}
     <div class="card-body table-responsive">
         @if($cabangs->count() > 0)
-        <table class="table">
+        <table class="table table-responsive-stack">
             <thead>
                 <tr>
                     <th width="60">No</th>
@@ -47,18 +47,18 @@
             <tbody>
                 @foreach($cabangs as $index => $cabang)
                 <tr>
-                    <td>{{ $cabangs->firstItem() + $index }}</td>
-                    <td>
+                    <td data-label="No">{{ $cabangs->firstItem() + $index }}</td>
+                    <td data-label="Nama Cabang">
                         <span class="menu-name">{{ $cabang->nama_cabang }}</span>
                     </td>
-                    <td>{{ $cabang->alamat }}</td>
-                    <td>{{ $cabang->telepon }}</td>
-                    <td>
+                    <td data-label="Alamat">{{ $cabang->alamat }}</td>
+                    <td data-label="Telepon">{{ $cabang->telepon }}</td>
+                    <td data-label="Jam Operasional">
                         <span class="kategori-badge kategori-makanan">
                             {{ $cabang->jam_buka }} - {{ $cabang->jam_tutup }} WIB
                         </span>
                     </td>
-                    <td>
+                    <td data-label="Aksi">
                         <div class="action-buttons">
                             <a href="{{ route('cabang.edit', $cabang) }}" class="btn btn-sm btn-warning" title="Edit">
                                 <i class="fas fa-edit"></i>

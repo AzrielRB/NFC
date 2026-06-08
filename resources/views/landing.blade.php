@@ -687,6 +687,7 @@
         @media (max-width: 768px) {
             .navbar-nav { display: none; }
             .mobile-toggle { display: block; }
+            .btn-login { display: none; }
 
             .hero { padding: 120px 0 60px; }
             .hero-content { flex-direction: column; text-align: center; gap: 30px; }

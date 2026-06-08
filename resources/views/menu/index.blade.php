@@ -33,7 +33,7 @@
     {{-- Table --}}
     <div class="card-body table-responsive">
         @if($menus->count() > 0)
-        <table class="table">
+        <table class="table table-responsive-stack">
             <thead>
                 <tr>
                     <th width="60">No</th>
@@ -49,28 +49,28 @@
             <tbody>
                 @foreach($menus as $index => $menu)
                 <tr>
-                    <td>{{ $menus->firstItem() + $index }}</td>
-                    <td>
+                    <td data-label="No">{{ $menus->firstItem() + $index }}</td>
+                    <td data-label="Gambar">
                         @if($menu->gambar)
                             <img src="{{ \Illuminate\Support\Str::startsWith($menu->gambar, ['http://', 'https://']) ? $menu->gambar : asset('storage/' . $menu->gambar) }}" alt="{{ $menu->nama_menu }}" class="table-img">
                         @else
                             <span style="color:#aaa;">—</span>
                         @endif
                     </td>
-                    <td>
+                    <td data-label="Nama Menu">
                         <span class="menu-name">{{ $menu->nama_menu }}</span>
                     </td>
-                    <td>
+                    <td data-label="Harga">
                         <span class="price-badge">Rp {{ number_format($menu->harga, 0, ',', '.') }}</span>
                     </td>
-                    <td>
+                    <td data-label="Kategori">
                         <span class="kategori-badge kategori-{{ strtolower($menu->kategori) }}">
                             {{ $menu->kategori }}
                         </span>
                     </td>
-                    <td>{{ $menu->created_at->format('d/m/Y H:i') }}</td>
-                    <td>{{ $menu->updated_at->format('d/m/Y H:i') }}</td>
-                    <td>
+                    <td data-label="Dibuat">{{ $menu->created_at->format('d/m/Y H:i') }}</td>
+                    <td data-label="Diperbarui">{{ $menu->updated_at->format('d/m/Y H:i') }}</td>
+                    <td data-label="Aksi">
                         <div class="action-buttons">
                             <a href="{{ route('menu.edit', $menu) }}" class="btn btn-sm btn-warning" title="Edit">
                                 <i class="fas fa-edit"></i>
